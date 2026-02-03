@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GPTPasteClean</title>
+
+  <meta
+    name="description"
+    content="GPTPasteClean detects hidden and invisible characters in text copied from ChatGPT and AI tools."
+  />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>GPTPasteClean</h1>
+      <p>Detect hidden and invisible characters in text copied from ChatGPT and AI tools</p>
+    </header>
+
+    <section class="grid">
+      <!-- INPUT -->
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Input</h2>
+          <div class="btns">
+            <button id="btnPaste" class="btn" type="button">Paste</button>
+            <button id="btnClear" class="btn btn-ghost" type="button">Clear</button>
+          </div>
+        </div>
+
+        <textarea
+          id="input"
+          placeholder="Paste your text here..."
+        ></textarea>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Result</h2>
+
+          <div class="btns">
+            <button id="btnCopyClean" class="btn btn-primary" type="button">
+              Copy clean text
+            </button>
+          </div>
+        </div>
+
+        <div class="notice">
+          <span id="foundBadge" class="badge">
+            0 hidden characters found
+          </span>
+        </div>
+
+        <div id="details" class="details"></div>
+        <div id="output" class="output rendered"></div>
+
+        <footer class="footer">
+          <span id="stats">Ready.</span>
+
+          <span style="float:right; opacity:.8;">
+            <a href="./privacy.html" style="color:inherit; text-decoration:underline;">
+              Privacy Policy
+            </a>
+          </span>
+          <div style="clear:both"></div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- REGISTER / LOGIN MODAL -->
+  <div id="registerModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+      <button class="close" id="closeRegisterModal" type="button">×</button>
+
+      <h2 id="regTitle">Create a Free Account</h2>
+
+      <p class="subtitle">
+        Log in to unlock <b>Copy clean text</b>.<br />
+        This feature is limited to registered users.
+      </p>
+
+      <ul class="modal-list">
+        <li>Unlimited basic detection</li>
+        <li>Copy cleaned text</li>
+        <li>Future advanced features</li>
+      </ul>
+
+      <div class="modal-actions">
+        <button id="maybeLater" class="ghost-btn" type="button">
+          Maybe later
+        </button>
+
+        <a
+          href="./privacy.html"
+          class="btn btn-primary"
+          style="text-decoration:none;"
+        >
+          Register / Sign in
+        </a>
+
+        <!-- DEMO ONLY -->
+        <button
+          id="demoUnlock"
+          class="btn"
+          type="button"
+          title="Demo only – no backend"
+        >
+          I already registered
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
